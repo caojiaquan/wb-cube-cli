@@ -1,0 +1,25 @@
+{
+  "name": "wb-cube-cli",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "vue",
+    "wb-cube-cli"
+  ],
+  "main": "index.js",
+  "bin": {
+    "wb-cube-cli": "bin/wb-cube-cli"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^3.0.1",
+    "download-git-repo": "^2.0.0",
+    "inquirer": "^7.0.0",
+    "ora": "^4.0.1"
+  }
+}
