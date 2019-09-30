@@ -88,5 +88,25 @@ module.exports = prompt(question).then(({name, description, author}) => {
         }
       });
     });
+
+    fs.readFile(`./${projectName}/src/blocks/schema.json`, 'utf8', function (err, data) {
+      if(err) {
+        spinner.stop();
+        console.error(err);
+        return;
+      }
+
+      const schemaJson = JSON.parse(data);
+      schemaJson.type = name;
+
+      fs.writeFile(`./${projectName}/src/blocks/schema.json`, JSON.stringify(schemaJson, null, 2), 'utf8', function (err) {
+        if(err) {
+          spinner.stop();
+          console.error(err);
+        } else {
+          spinner.stop();
+        }
+      });
+    });
   })
 });
