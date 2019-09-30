@@ -1,18 +1,15 @@
-// const fs = require('fs');
-const cwd = process.cwd();
 const { exec } = require('child_process');
 const path = require('path')
-console.log(path.resolve(__dirname, './webpack.build.prod.config.js'));
+const webpack = path.resolve(__dirname, '../node_modules/webpack/bin/webpack.js');
+const webpackConf = path.resolve(__dirname, '../build/webpack.build.prod.config.js');
 
-exec(`webpack --config ${path.resolve(__dirname, './webpack.build.prod.config.js')}`, (error, stdout, stderr) => {
+console.log(webpack, webpackConf)
+
+exec(`${webpack} --config ${webpackConf}`, (error, stdout, stderr) => {
   if (error) {
     console.error(`exec error: ${error}`);
     return;
   }
-  console.log(`stdout: ${stdout}`);
-  console.log(`stderr: ${stderr}`);
+  console.log(stdout);
+  console.log(stderr);
 });
-
-// fs.readFile(`./package.json`, 'utf8', function (err, data) {
-//   console.log(data)
-// });

@@ -4,21 +4,18 @@ const merge = require('webpack-merge');
 const webpackBaseConfig = require('./webpack.base.config.js');
 const CompressionPlugin = require('compression-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const cwd = process.cwd();
 
 process.env.NODE_ENV = 'production';
 
 module.exports = merge(webpackBaseConfig, {
     devtool: 'source-map',
     entry: {
-        main: './src/index.js'
+        main: './src/main.js'
     },
     output: {
-        path: path.resolve(__dirname, '../dist'),
-        publicPath: '/dist/',
-        filename: 'iview.min.js',
-        library: 'iview',
-        libraryTarget: 'umd',
-        umdNamedDefine: true
+        path: path.resolve(cwd, './dist'),
+        filename: '[name].min.js'
     },
     externals: {
         vue: {

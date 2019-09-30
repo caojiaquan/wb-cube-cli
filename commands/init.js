@@ -11,7 +11,7 @@ const question = [
     type: 'input',
     name: 'name',
     message: 'Project name',
-    default: typeof option === 'string' ? option : 'al-block-template',
+    default: typeof option === 'string' ? option : 'wb-block',
     filter (val) {
       return val.trim()
     },
